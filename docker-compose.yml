@@ -1,0 +1,28 @@
+version: "2.2"
+
+services:
+
+  admincrashboard-deps:
+    image: faust.cs.fau.de:5000/admincrashboard-deps
+    build:
+      context: ./admincrashboard
+      dockerfile: Dockerfile.deps
+    scale: 0
+
+  admincrashboard:
+    restart: unless-stopped
+    image: faust.cs.fau.de:5000/admincrashboard
+    init: true
+    build: admincrashboard
+    ports:
+        - "5000:5000"
+        - "5002:22"
+
+
+networks:
+  default:
+    enable_ipv6: true
+    ipam:
+        driver: default
+        config:
+            - subnet: "fd42:d0ce:1773::/64"

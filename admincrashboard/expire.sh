@@ -1,0 +1,1 @@
+find /home -maxdepth 1 -mindepth 1 -mmin +30 -not -name "crashboard" -exec sh -c "basename {} | xargs deluser --remove-home" \; >/tmp/success 2>/tmp/errors

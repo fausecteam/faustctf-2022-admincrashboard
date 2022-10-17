@@ -1,0 +1,1 @@
+*/3 * * * * root find /home -maxdepth 1 -mindepth 1 -mmin +6 -not -name "crashboard" -exec sh -c "basename {} | xargs deluser --remove-home " \;

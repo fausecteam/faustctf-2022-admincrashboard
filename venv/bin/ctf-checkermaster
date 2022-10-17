@@ -1,0 +1,9 @@
+#!/home/benya/Documents/Workbench/admincrashboard/venv/bin/python3
+
+import sys
+
+from ctf_gameserver.checker import main
+
+
+if __name__ == '__main__':
+    sys.exit(main())

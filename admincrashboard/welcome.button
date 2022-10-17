@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<command>
+    <name>Welcome</name>
+    <script>whoami | awk '{print "Hello " $1 ","} {print "Welcome to AdminCrashBoard"}'</script>
+</command>

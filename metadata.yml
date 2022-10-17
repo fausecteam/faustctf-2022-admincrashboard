@@ -1,0 +1,22 @@
+# Human-readable name of the service
+name: admin-crashboard-service
+# Name of the service for usage in paths, usernames etc.: Should only consist of lowercase alphanumeric
+# characters, must be identical to the (URL) project name of the GitLab repo
+slug: admincrashboard
+authors:
+  - benny <benny.haag@fau.de>
+
+install:
+  prevent_outgoing_connections: True
+  container_images:
+    - python
+    - faust.cs.fau.de:5000/admincrashboard-deps
+    - faust.cs.fau.de:5000/admincrashboard
+
+checker:
+  script_path: checker/mychecker.py
+  # Upper bound of how long the Checker Script takes to run (for a single team)
+  # Used for scheduling checks within a tick, executions taking longer *may* get terminated
+  max_duration: 60
+  debian_packages: []
+  pip_packages: [requests, BeautifulSoup4]
